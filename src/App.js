@@ -5,7 +5,6 @@ import LocationOptions from '../src/components/LocationOptions';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import Navigation from "./components/Navigation";
 import Restaraunt from '../src/components/Restaraunt';
-import GasStations from '../src/components/GasStations';
 import Hospitals from '../src/components/Hospitals';
 import Motels from '../src/components/Motels';
 import Rest from '../src/subComponents/Rest';

@@ -55,10 +55,13 @@ const Rest = ({ nearbyLocations }) => {
       } catch (error) {
         console.error('Error fetching data:', error);
         setLoading(false)
+
+       
       }
+      console.log('got the daata ');
     };
     // console.log('mylomh',ulatitude , ulongitude);
-    // console.log('here sers',users[0]);
+    //console.log('here sers',users[0]);
   
     const getUserLocation = () => {
         if (navigator.geolocation) {
@@ -82,7 +85,7 @@ const Rest = ({ nearbyLocations }) => {
     useEffect(() => {
       getUserLocation();
     },); 
-
+    console.log('data : ', users);
   return (
     <div>
         {loading  ? (
@@ -129,7 +132,9 @@ const Rest = ({ nearbyLocations }) => {
     <>
     <p className='pp'>Restaurants you may like and near you</p>
     <div className='class-parent-flex'>
+      {console.log(users[0].name)}
       {users.length > 0 && users[0] && (
+        console.log('here is the data : ', users[0].name , users[0].image_url),
         <div className='flex1' onClick={openModal}>
         <div className='img'>
           <img className='img'  alt="mmage" src={`${users[0].image_url}`} />
@@ -138,10 +143,12 @@ const Rest = ({ nearbyLocations }) => {
           </div>
         </div>
       )}
-      {users.length > 1 && (
+      {
+      users.length > 1 && (
      <ul className='flex2-container'>
     {users.slice(1, 10).map((user, index) => (
       <li key={index}>
+        {console.log('here is the user name ',user.name)}
         <Link style={{color:'black' , textDecoration:'none'}} to={`/Leftcomponent?name=${user.name}&image_url=${user.image_url}&distance=${user.distance}`}>
         <div className='flex-2'>
           <img className='imgd ' alt='nmi' src={`${user.image_url}`} />
