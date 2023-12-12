@@ -1,0 +1,44 @@
+.kdsfl{
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+    height: 1000px;
+    width: 100%;
+    max-width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+    /* font-family: 'Karrik-Regular'; */
+    font-size: 20px;
+    font-weight: lighter;
+
+}
+
+.title2{
+    font-family: 'Karrik-Regular';
+    color: #333333;
+    text-align: center;
+    font-size: 50px;
+    font-weight:400;
+}
+
+.photod{
+    width: 800px;
+    height: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-block: 30px;
+    
+}
+
+.description{
+    padding: 20px;
+    font-weight: 300;    
+}
+
+.distance{
+    text-align: center;
+    font-weight: 200;
+}
+
+.bold{
+    font-weight: 400;
+}

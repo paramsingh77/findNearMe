@@ -1,0 +1,51 @@
+@import url('https://fonts.cdnfonts.com/css/the-berlin');
+@import url('https://fonts.cdnfonts.com/css/rollston');
+@import url('https://fonts.cdnfonts.com/css/helmet');
+@import url('https://fonts.cdnfonts.com/css/hogbine');
+@import url('https://fonts.cdnfonts.com/css/orbiter-fbs-trial');
+
+:root{
+    --primary-text-color: black;
+    --secondary-text-color: #fdbc68;
+    --third-text-color: grey;
+    --accent-color: #A6BEAE;
+    --accent-dark-color: #D6AEAE;
+    --padding-inline-section: 20px;
+    --max-width: 1180px
+}
+
+.parent-location-class{
+    display: flex;
+    max-width: var(--max-width);
+    margin-left:auto;
+    margin-right: auto;
+   
+    
+}
+
+.options{
+    color: black;
+    gap: 70px;
+    display: flex;
+    font-family: 'Orbiter FBS Trial', sans-serif;
+    font-weight: bold;
+}
+
+ul{
+    justify-content: center;
+    text-decoration: none;
+}
+
+li{
+    text-decoration: none;
+    
+}
+
+.tede{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+    color: black;
+    background-color: rgb(218, 224, 229);
+    padding: 10px;
+    border-radius: 10px;
+}

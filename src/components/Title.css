@@ -1,0 +1,30 @@
+@import url('https://fonts.cdnfonts.com/css/the-berlin');
+@import url('https://fonts.cdnfonts.com/css/rollston');
+@import url('https://fonts.cdnfonts.com/css/helmet');
+@import url('https://fonts.cdnfonts.com/css/hogbine');
+:root{
+    --primary-text-color: black;
+    --secondary-text-color: #fdbc68;
+    --third-text-color: grey;
+    --accent-color: #A6BEAE;
+    --accent-dark-color: #D6AEAE;
+    --padding-inline-section: 20px;
+    --max-width: 1180px
+}
+
+.title-parent-class{
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+  
+    
+}
+.title{
+    font-size: 60px;
+    max-width: 56%;
+    font-family: 'Hogbine', sans-serif;
+    padding: 50px;
+    font-weight: bold;
+    z-index: 4;
+}

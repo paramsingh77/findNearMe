@@ -1,0 +1,23 @@
+[
+  {
+    "formatted_address": "Alliance Center Dr NE, Atlanta, GA 30326, United States",
+    "geometry": {
+      "location": {
+        "lat": 33.8509948,
+        "lng": -84.3661453
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 33.85264327989272,
+          "lng": -84.36493012010729
+        },
+        "southwest": {
+          "lat": 33.84994362010728,
+          "lng": -84.36762977989272
+        }
+      }
+    },
+    "name": "Two Alliance Center",
+    "rating": 5
+  }
+]

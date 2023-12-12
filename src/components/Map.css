@@ -1,0 +1,16 @@
+.mapStyle {
+    width: 100%;
+    height: 300px;
+    margin-right: 100px;
+    overflow: hidden; 
+    /* position: relative; */
+}
+
+.rel {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 50px;
+    background-color: antiquewhite;
+    position:absolute;
+    border-radius: 10px;
+}

@@ -1,0 +1,94 @@
+/* Utilties */
+@import url('https://fonts.cdnfonts.com/css/the-berlin');
+@import url('https://fonts.cdnfonts.com/css/rollston');
+@import url('https://fonts.cdnfonts.com/css/helmet');
+:root{
+    --primary-text-color: black;
+    --secondary-text-color: #fdbc68;
+    --third-text-color: grey;
+    --accent-color: #A6BEAE;
+    --accent-dark-color: #D6AEAE;
+    --padding-inline-section: 20px;
+    --max-width: 1180px
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.flex{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+
+
+ul {
+    list-style: none;
+   
+}
+
+li{
+    flex-direction: column;
+    display: inline-flex;
+    margin: 20px;
+
+    
+}
+
+
+/* ********************************************************** */
+
+.sideList{
+    width: 20%;
+}
+
+.logo{
+    width: 70%;
+    /* background-color: #A6BEAE; */
+    text-align: center;
+    font-size: 30px;
+   font-family: 'Rollston', sans-serif;
+   font-weight: bold;
+   text-decoration: none;
+}
+.login{
+    width: 20%;
+}
+
+.exitlogo{
+    height: 40px;
+    width: 40px;
+    position: relative;
+   
+
+}
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideone{
+  font-family: 'Helmet', sans-serif;
+}
+
+.parent-class{
+    padding-top:20px ;
+    border-bottom: 0.1px solid rgb(232, 232, 232);
+    background-color: transparent;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    /* backdrop-filter: blur(10px);; */
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+}
