@@ -26,8 +26,14 @@
 ### Detailed Description for each Location
 ![IMG_4867](https://github.com/paramsingh77/findNearMe/assets/113473052/c5367d34-9c69-45ff-a360-c773e0d7486d)
 
-### Working Demo
-![FE4A3EE6-0847-4540-9AD8-901B5FFC9AF7_1_105_c](https://github.com/paramsingh77/findNearMe/assets/113473052/446cfd6f-f032-4137-984c-d2d43e9257c0)
+### Backend Processing Using Flask Working Demo
+[![Backend](https://github.com/paramsingh77/findNearMe/assets/113473052/19b126b5-1245-465a-98e0-4ce3f9909540)
+](https://github.com/paramsingh77/findNearMe/assets/113473052/e4a4d6ab-74dd-4f53-9375-abfc0f73320d)
+
+### Frontend Working Demo
+[![Frontend]([https://github.com/paramsingh77/findNearMe/assets/113473052/19b126b5-1245-465a-98e0-4ce3f9909540)
+](https://github.com/paramsingh77/findNearMe/assets/113473052/e4a4d6ab-74dd-4f53-9375-abfc0f73320d](https://github.com/paramsingh77/findNearMe/assets/113473052/b1ad3606-b6fa-4e1f-a8d2-cfaa6026784e
+)
 
 # Getting Started with Create React App
 
