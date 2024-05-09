@@ -15,7 +15,7 @@
 ![IMG_4862](https://github.com/paramsingh77/findNearMe/assets/113473052/daf66993-3bef-448e-8952-16e86b042bf6)
 
 ### Modals
-![IMG_4863](https://github.com/paramsingh77/findNearMe/assets/113473052/4c099ed3-b9b7-4313-a037-f4735ecf438c)
+![IMG_4868](https://github.com/paramsingh77/findNearMe/assets/113473052/f5d52b40-2c53-4eec-9ebe-764ce1d10039)
 
 ### Maps Using Leaflet
 ![IMG_4864](https://github.com/paramsingh77/findNearMe/assets/113473052/f08eb7a4-cb53-4952-9f68-e1c043397519)
