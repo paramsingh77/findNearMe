@@ -1,3 +1,32 @@
+# Find Near Me
+
+## Components
+
+### Landing Page
+![IMG_4859](https://github.com/paramsingh77/findNearMe/assets/113473052/d7bcf3e5-133e-44b0-b25c-d77f105ed9ce)
+
+### Nearest Restaurant 
+![IMG_4860](https://github.com/paramsingh77/findNearMe/assets/113473052/a80783d3-ceb1-457d-90b9-11590d006ff3)
+
+### More Recommendations
+![IMG_4861](https://github.com/paramsingh77/findNearMe/assets/113473052/aa2fcd63-f126-49c7-898a-be3abf5818e0)
+
+### Nearest Hospitals
+![IMG_4862](https://github.com/paramsingh77/findNearMe/assets/113473052/daf66993-3bef-448e-8952-16e86b042bf6)
+
+### Modals
+![IMG_4863](https://github.com/paramsingh77/findNearMe/assets/113473052/4c099ed3-b9b7-4313-a037-f4735ecf438c)
+
+### Maps Using Leaflet
+![IMG_4864](https://github.com/paramsingh77/findNearMe/assets/113473052/f08eb7a4-cb53-4952-9f68-e1c043397519)
+
+### Recommending More Places
+![IMG_4865](https://github.com/paramsingh77/findNearMe/assets/113473052/f49b7ddf-9492-4573-a908-9a54d2c64032)
+
+### Detailed Description for each Location
+![IMG_4867](https://github.com/paramsingh77/findNearMe/assets/113473052/c5367d34-9c69-45ff-a360-c773e0d7486d)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
