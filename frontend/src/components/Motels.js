@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const Motels = () => {
-    const url = 'http://localhost:8080/api/nearby-location/motels';
+    const url = process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api/nearby-location/motels` : 'http://localhost:8080/api/nearby-location/motels';
   const [users, setUsers] = useState([]);
 
   const fetchData = async () => {

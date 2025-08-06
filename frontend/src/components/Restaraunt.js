@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const Restaurant = () => {
-  const url = 'http://localhost:8080/api/nearby-location/restaurant';
+  const url = process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api/nearby-location/restaurant` : 'http://localhost:8080/api/nearby-location/restaurant';
   const [users, setUsers] = useState([]);
 
   const fetchData = async () => {

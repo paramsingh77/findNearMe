@@ -18,6 +18,16 @@
       }
     },
     "name": "Two Alliance Center",
-    "rating": 5
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/118096862633195721051\">Axel</a>"
+        ],
+        "photo_reference": "ATKogpdDeHjpJS8_LftdZE5cQJyRJlD0RWRoJYM70_SGY1X_zaSKm0UqYjdCXpEMI7yhGX_gsmClDBIgC4nDcRIwH2vTZA-BHOXNyhbwKkaZTYnTabdcx59H3MNxSSLK2dsz2qxupdj2u1ya8ttm2g4jhRfzF8V5CNMoedZJf_1onaCLEKQezi5ZvvQvSLQ5FAGqWmrKR6kZ5tgUk0mWdfLSsh_2qSOEd0QCWu5mxPM6g2eXdhX1jnJR8BIdUHeF8ulRrgL1M79WPw49IsnKgBC85v7ZUfjgohQq8IGrUq8ixfl1yTIB4_u1buwbi0t5f_I0D4-oo66yYEsUV78e2crxoK4rObRmdtZ-uh6rlumbblLwU-YG9EIdFVRJTeMk79RqpLT9JJMRR5YvCELSbCOyTFHyR6ifeyVA023n5Zi6mLB3g1aQlEBEDPH9PNjhq8M-EmJxpH9hI9JFLt9Kk_lyoK88tBQAP9B4kh7pb07nclgqIi7oPDtQAwkh_T_3TiUG8tE2mMtdAQFMG6-HRayeHeABc2ArJAyy3dkqspCYEl4gwDZcXxx41n9ZXWpGiV_EQTFdyF1jIh96iw",
+        "width": 3024
+      }
+    ],
+    "rating": 4.5
   }
 ]

@@ -229,6 +229,7 @@
 # if __name__ == '__main__':
 #      app.run(port=8080, debug=True)
 
+import os
 import urllib.parse
 import requests
 import csv
@@ -268,10 +269,15 @@ with open(jsonFile, 'w') as inFile:
 
 locations_data = OrderedDict({"restaurant": [], "Hospital": [], "gasStation": []})
 
-# New API key
-API_KEY = "AIzaSyB3j2YPg-HifhSfwmd8vuzxTzc5tap-PdY"
+# Get API key from environment variable for security
+import os
+API_KEY = os.getenv('GOOGLE_PLACES_API_KEY', 'AIzaSyBh_tIraoPFQP_07uh-w-hFV7NAZriOWD8')
 
 def get_photos(name):
+    # Check if API key is set
+    if API_KEY == 'YOUR_NEW_API_KEY_HERE':
+        return "https://via.placeholder.com/400x300?text=API+Key+Not+Set"
+    
     base_url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
     parameters = {
         'key': API_KEY,
@@ -280,15 +286,24 @@ def get_photos(name):
         'fields': 'photos,formatted_address,name,rating,opening_hours,geometry'
     }
 
-    response = requests.get(base_url, params=parameters)
-    jformat = response.json()
-
-    print("************************************")
-    # Add logging to inspect the response
-    print(f"Requesting photos for: {name}")
-    print(f"API Response: {json.dumps(jformat, indent=2)}")
-
     try:
+        response = requests.get(base_url, params=parameters, timeout=10)
+        jformat = response.json()
+
+        print("************************************")
+        print(f"Requesting photos for: {name}")
+        print(f"API Response: {json.dumps(jformat, indent=2)}")
+
+        # Check for API errors
+        if jformat.get('status') == 'REQUEST_DENIED':
+            error_msg = jformat.get('error_message', 'Unknown error')
+            print(f"API Error: {error_msg}")
+            return "https://via.placeholder.com/400x300?text=API+Error"
+        
+        if jformat.get('status') == 'OVER_QUERY_LIMIT':
+            print("API Quota exceeded")
+            return "https://via.placeholder.com/400x300?text=Quota+Exceeded"
+
         if 'candidates' in jformat and len(jformat['candidates']) > 0:
             place_id = jformat['candidates']
 
@@ -308,13 +323,17 @@ def get_photos(name):
                     url_for_picture = f"{base_url1}?{urllib.parse.urlencode(parameters)}"
                     return url_for_picture
                 else:
-                    return f"The photo is not available for {name}"
+                    return "https://via.placeholder.com/400x300?text=No+Photo+Available"
             else:
-                return f"The place_id is not available for {name}"
+                return "https://via.placeholder.com/400x300?text=No+Photo+Available"
         else:
-            return "The Location is not available"
-    except KeyError:
-        return "The Location is not available"
+            return "https://via.placeholder.com/400x300?text=Location+Not+Found"
+    except requests.exceptions.RequestException as e:
+        print(f"Network error for {name}: {e}")
+        return "https://via.placeholder.com/400x300?text=Network+Error"
+    except Exception as e:
+        print(f"Unexpected error for {name}: {e}")
+        return "https://via.placeholder.com/400x300?text=Error"
 
 open("place_id.txt", 'w').close()
 
@@ -396,5 +415,34 @@ def get_nearby_locations(category):
     else:
         return jsonify({"error": "Invalid method"}), 405
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint for Railway"""
+    return jsonify({
+        "status": "healthy",
+        "message": "Find Near Me API is running",
+        "data_loaded": {
+            "restaurants": len(locations_data["restaurant"]),
+            "hospitals": len(locations_data["Hospital"]),
+            "gas_stations": len(locations_data["gasStation"])
+        }
+    })
+
+@app.route('/', methods=['GET'])
+def home():
+    """Home endpoint"""
+    return jsonify({
+        "message": "Find Near Me API",
+        "status": "running",
+        "endpoints": {
+            "restaurants": "/api/nearby-location/restaurant",
+            "hospitals": "/api/nearby-location/Hospital", 
+            "gas_stations": "/api/nearby-location/gasStation",
+            "health": "/health"
+        }
+    })
+
 if __name__ == '__main__':
-    app.run(port=8080, debug=True)
+    # Get port from environment variable (Railway sets this)
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port, debug=False)

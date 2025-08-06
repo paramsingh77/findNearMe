@@ -15,6 +15,7 @@ import Leftcomponent from '../src/subComponents/Leftcomponent';
 import './App.css';
 import GassStations from './subComponents/GassStations';
 function App() {
+
   return (
 		<>
 			{/* <LandingPage/> */}
@@ -22,6 +23,9 @@ function App() {
 				<Header />
 				<Title />
 				<LocationOptions />
+				
+
+				
 				<Routes>
          		 <Route path='/restaurant' element={<Restaraunt />} />
          		 {/* <Route path='/GasStations' element={<GasStations />} /> */}
@@ -30,11 +34,12 @@ function App() {
 				 <Route path='/Leftcomponent' element={<Leftcomponent/>}/>
 				</Routes>
 				
-            <Rest/>
-			<ShopNeighbour/>
-			<Hos/>
-			<GassStations/>
-			<Empty/>
+				{/* Location Components */}
+				<Rest/>
+				<ShopNeighbour/>
+				<Hos/>
+				<GassStations/>
+				<Empty/>
 		</Router>
 		</>
 	);

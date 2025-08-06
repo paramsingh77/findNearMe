@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const GasStations = () => {
-  const url = 'http://localhost:8080/api/nearby-location/gasStation';
+  const url = process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api/nearby-location/gasStation` : 'http://localhost:8080/api/nearby-location/gasStation';
   const [users, setUsers] = useState([]);
 
   const fetchData = async () => {

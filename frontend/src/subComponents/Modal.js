@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Map from '../components/Map';
 import './Modal.css'
 import loci  from './marker.png'
+
 const Modal = ({ isOpen, onClose  , ...props} ) => {
+  const [imageLoading, setImageLoading] = useState({});
+  
   if (!isOpen) return null;
   
   var users  = props.users
-  console.log('data of the ',users);
+  console.log('Modal props:', {
+    name: props.name,
+    latitude: props.latitude,
+    longitude: props.longitude,
+    userLat: props.userLat,
+    userLng: props.userLng
+  });
+
+  const handleImageLoad = (index) => {
+    setImageLoading(prev => ({ ...prev, [index]: false }));
+  };
+
+  const handleImageError = (index) => {
+    setImageLoading(prev => ({ ...prev, [index]: false }));
+  };
+
+  const startImageLoading = (index) => {
+    setImageLoading(prev => ({ ...prev, [index]: true }));
+  };
+
   return (
     <div className="modal">
     <div className="overlay" onClick={onClose}></div>
@@ -34,7 +56,13 @@ const Modal = ({ isOpen, onClose  , ...props} ) => {
         <div className='Address1'><img className='imgs' src={loci} alt='imgds'></img>Distance<br/>{(props.distance*69).toFixed(2)} Miles </div>
         </div>
         <div className='map-place'>
-             <Map name={props.name} locationLat={props.latitude} locationLng={props.longitude} userLat={props.userLat} userLng={props.userLng} />
+             <Map 
+               name={props.name || 'Location'} 
+               locationLat={props.latitude} 
+               locationLng={props.longitude} 
+               userLat={props.userLat} 
+               userLng={props.userLng} 
+             />
         </div>
      {/* <p className=''>address : {props.address}</p>
      <p className=''>website : {props.website}</p> */}
@@ -42,10 +70,28 @@ const Modal = ({ isOpen, onClose  , ...props} ) => {
         Discover more places
       <div className='sugg'>
        {users.slice(10,40).map((user,index)=>( 
-           <div className='cards'>
-             <img alt='imgs' className='imgss' src={`${user.image_url}`}></img>
-             <p className='card-text'>{user.name}</p>
-             {/* <p>{(user.distance*69).toFixed(2)} Miles</p> */}
+           <div className='cards' key={index}>
+             <div className="card-image-container">
+               <img 
+                 alt='imgs' 
+                 className={`imgss ${imageLoading[index] ? 'loading' : ''}`} 
+                 src={user.image_url}
+                 onLoad={() => handleImageLoad(index)}
+                 onError={() => handleImageError(index)}
+                 onLoadStart={() => startImageLoading(index)}
+               />
+               <div className="card-distance">
+                 {(user.distance*69).toFixed(1)} mi
+               </div>
+               {user.rating && (
+                 <div className="card-rating">
+                   {user.rating}
+                 </div>
+               )}
+             </div>
+             <div className="card-content">
+               <p className='cards-text'>{user.name}</p>
+             </div>
            </div>
       
        ))}

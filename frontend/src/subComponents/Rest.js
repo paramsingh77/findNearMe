@@ -174,29 +174,31 @@
 
 // export default Rest
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Modal from './Modal';
-import { Link } from 'react-router-dom';
 import './rest.css';
 
 const Rest = ({ nearbyLocations }) => {
-  const url = 'http://localhost:8080/api/nearby-location/restaurant';
+  const url = process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api/nearby-location/restaurant` : 'http://localhost:8080/api/nearby-location/restaurant';
   const [users, setUsers] = useState([]);
   const [, setUserLocation] = useState(null);
   const [loading, setLoading] = useState(true);
   const [ulatitude, setUlatitude] = useState(null);
   const [ulongitude, setUlongitude] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
 
-  const openModal = () => {
+  const openModal = (user = null) => {
+    setSelectedUser(user || users[0]);
     setModalOpen(true);
   };
 
   const closeModal = () => {
     setModalOpen(false);
+    setSelectedUser(null);
   };
 
-  const fetchData = async (latitude, longitude) => {
+  const fetchData = useCallback(async (latitude, longitude) => {
     console.log('latitude:', latitude, longitude);
     setUlatitude(latitude);
     setUlongitude(longitude);
@@ -229,9 +231,9 @@ const Rest = ({ nearbyLocations }) => {
       console.error('Error fetching data:', error);
       setLoading(false);
     }
-  };
+  }, [url]);
 
-  const getUserLocation = () => {
+  const getUserLocation = useCallback(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -248,11 +250,11 @@ const Rest = ({ nearbyLocations }) => {
       console.error('This browser doesn\'t support geolocation.');
       setLoading(false);
     }
-  };
+  }, [fetchData]);
 
   useEffect(() => {
     getUserLocation();
-  }, []);
+  }, [getUserLocation]);
 
   if (loading) {
     return (
@@ -306,32 +308,32 @@ const Rest = ({ nearbyLocations }) => {
           <ul className='flex2-container'>
             {users.slice(1, 10).map((user, index) => (
               <li key={index}>
-                <Link style={{ color: 'black', textDecoration: 'none' }} to={`/Leftcomponent?name=${user.name}&image_url=${user.image_url}&distance=${user.distance}`}>
-                  <div className='flex-2'>
-                    <img className='imgd' alt='nmi' src={user.image_url} />
-                    <p className='hotel_name'>{user.name}</p>
-                  </div>
-                </Link>
+                <div className='flex-2' onClick={() => openModal(user)} style={{ cursor: 'pointer' }}>
+                  <img className='imgd' alt='nmi' src={user.image_url} />
+                  <p className='hotel_name'>{user.name}</p>
+                </div>
               </li>
             ))}
           </ul>
         )}
       </div>
       <div id="map"></div>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        name={users[0]?.name}
-        image={users[0]?.image_url}
-        address={users[0]?.address}
-        website={users[0]?.website}
-        userLat={ulatitude}
-        userLng={ulongitude}
-        latitude={users[0]?.latitude}
-        longitude={users[0]?.longitude}
-        distance={users[0]?.distance}
-        users={users}
-      />
+      {selectedUser && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          name={selectedUser.name}
+          image={selectedUser.image_url}
+          address={selectedUser.address}
+          website={selectedUser.website}
+          userLat={ulatitude}
+          userLng={ulongitude}
+          latitude={selectedUser.latitude}
+          longitude={selectedUser.longitude}
+          distance={selectedUser.distance}
+          users={users}
+        />
+      )}
     </div>
   );
 };
