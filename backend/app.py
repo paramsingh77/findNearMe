@@ -271,7 +271,7 @@ locations_data = OrderedDict({"restaurant": [], "Hospital": [], "gasStation": []
 
 # Get API key from environment variable for security
 import os
-API_KEY = os.getenv('GOOGLE_PLACES_API_KEY', 'AIzaSyBh_tIraoPFQP_07uh-w-hFV7NAZriOWD8')
+API_KEY = os.getenv('GOOGLE_PLACES_API_KEY', 'xxx')
 
 def get_photos(name):
     # Check if API key is set
